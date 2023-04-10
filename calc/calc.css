@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: aqua;
+}
+
+.container{
+    margin: 10px auto;
+    width: 200px;
+}
+
+.screen{
+    background-color: white;
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+.keyboard{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item{
+    background-color: rgb(164, 163, 163);
+    outline: none; 
+    height: 50px;
+    border: 0.1px solid rgb(212,212,212);
+}
+
+.item:hover{
+    background-color: rgb(182,182,182);
+    cursor: pointer;
+}
+
+.screen .input{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 40px;
+    color:rgb(63, 63, 63);
+    z-index: 222;
+}
+
+.item1{
+    grid-column: 1/span 2;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(34, 116, 75);
+        }
+        
+        #clock {
+            text-align: center;
+            font-size: 100px;
+            color: rgb(223, 231, 231);
+        }
+        
+        .buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">00:00:00</div>
+    <div class="buttons">
+        <button class="btn" onclick="start()">Start</button>
+        <button class="btn" onclick="end()">End</button>
+        <button class="btn" onclick="restart()">Restart</button>
+    </div>
+</body>
+
+<script language="JavaScript">
+    var s = "0" + 0;
+    var m = "0" + 0;
+    var h = "0" + 0;
+
+    function start() {
+        myInterval = setInterval("refreshClock()", 1000);
+    }
+
+    function end() {
+        clearInterval(myInterval);
+    }
+
+    function restart(){
+        s =  "0" + 0;
+        m = "0" + 0;
+        h = "0" + 0;
+        document.getElementById("clock").innerHTML =  s + ":" + m + ":" + h
+    }
+    
+    function refreshClock() {
+
+        s = loadSecond();
+        m = loadMinute();
+        h = loadHour();
+
+        function loadSecond() {
+            if (s < 59) {
+                s++;
+                if (s < 10) {
+                    s = "0" + s;
+                }
+                return s;
+            }
+            if (s == 59) {
+                s = "0" + 0;
+                return s;
+            }
+        }
+
+
+        function loadMinute() {
+            if (s == 59) {
+                m++;
+                if (m < 10) {
+                    m = "0" + m;
+                }
+                return m;
+            }
+            return m;
+        }
+
+
+        function loadHour() {
+
+            if (m == 59) {
+                h++;
+                if (h < 10) {
+                    h = "0" + h;
+                }
+                m = "0" + 0;
+            }
+            return h;
+        }
+
+
+        document.getElementById("clock").innerHTML = h + ":" + m + ":" + s
+        
+    }
+</script>
+
+</html>
